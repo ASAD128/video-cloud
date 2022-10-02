@@ -1,7 +1,7 @@
 <%= form_with(model: video, local: true) do |form| %>
   <% if video.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
+      <h2>Sorry, Unable to upload the video</h2>
 
       <ul>
       <% video.errors.full_messages.each do |message| %>
@@ -21,9 +21,12 @@
     <%= form.collection_select :category_id, Category.all, :id, :name %>
   </div>
 
-  <%= form.file_field :file %>
+  <div class="field">
+    <%= form.label :video %>
+    <%= form.file_field :file %>
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Upload" %>
   </div>
 <% end %>

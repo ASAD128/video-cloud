@@ -1,27 +1,28 @@
+<link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+<script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Videos</h1>
+<button><%= link_to 'Upload Video', new_video_path(@video) %></button>
 
 <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
-    <% @videos.last(5).each do |video| %>
+    <% @videos.last(2).each do |video| %>
       <tr>
-        <td><%= video.title %></td>
-        <td><%= video_tag(url_for(video.file), controls = '' ) %></td>
-        <td><%= image_tag(url_for(video.file.preview(resize: "200X200!").processed)) %></td>
-        <td><%= link_to 'Show', video %></td>
-        <td><%= link_to 'Edit', edit_video_path(video) %></td>
-        <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <video class="video-js" width="256" height="256" controls poster="<%= url_for(video.file.preview(resize: "256X256!").processed) %><" data-setup='{"fluid": false}'>
+            <source src="<%= url_for(video.file) %>" type="video/mp4" />
+          </video>
+        </td>
+        <td style="vertical-align:top"><h3><%= video.title %></h3><br><%= Category.find(video.category_id).name %></td>
       </tr>
+
     <% end %>
   </tbody>
 </table>
 
 <br>
+
+
+
