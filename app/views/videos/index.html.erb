@@ -3,12 +3,14 @@
 
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Upload Video', new_video_path(@video)%>
+<br>
+
 <h1>Videos</h1>
-<button><%= link_to 'Upload Video', new_video_path(@video) %></button>
 
 <table>
   <tbody>
-    <% @videos.last(2).each do |video| %>
+    <% @videos.each do |video| %>
       <tr>
         <td>
           <video class="video-js" width="256" height="256" controls poster="<%= url_for(video.file.preview(resize: "256X256!").processed) %><" data-setup='{"fluid": false}'>
@@ -17,12 +19,8 @@
         </td>
         <td style="vertical-align:top"><h3><%= video.title %></h3><br><%= Category.find(video.category_id).name %></td>
       </tr>
-
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-
-
