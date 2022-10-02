@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @videos.last(2).each do |video| %>
+    <% @videos.last(5).each do |video| %>
       <tr>
         <td><%= video.title %></td>
         <td><%= video_tag(url_for(video.file), controls = '' ) %></td>
