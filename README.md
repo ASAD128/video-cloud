@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple Web Application of Upload and Watch Videos
 
-Things you may want to cover:
+# Demo
 
-* Ruby version
+![Demo](https://im2.ezgif.com/tmp/ezgif-2-82ac770fa3.gif)
 
-* System dependencies
+# Ruby 
+ruby 2.5.9
 
-* Configuration
+# Rails
+Rails 5.2.8.1
 
-* Database creation
+# Build 
+* bundle install
+* rails db:create 
+* bunlde exec rake db:migrate db:seed 
 
-* Database initialization
+# Docker
+```
+docker-compose build
+docker-compose up
+```
 
-* How to run the test suite
+# System Dependencies without Docker
+```
+* Linux
+sudo apt update
+sudo apt install ffmpeg
+sudo apt install imagemagick
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* macOS
+brew install ffmpeg
+brew install imagemagick
+```
