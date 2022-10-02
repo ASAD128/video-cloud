@@ -16,6 +16,13 @@
     <%= form.text_field :title %>
   </div>
 
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.collection_select :category_id, Category.all, :id, :name %>
+  </div>
+
+  <%= form.file_field :file %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
