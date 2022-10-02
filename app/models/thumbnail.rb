@@ -1,0 +1,2 @@
+class Thumbnail < ApplicationRecord
+end
