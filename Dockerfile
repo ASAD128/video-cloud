@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 FROM ruby:2.5
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client ffmpeg imagemagick
 WORKDIR /video-app
 COPY Gemfile /video-app/Gemfile
 COPY Gemfile.lock /video-app/Gemfile.lock
