@@ -17,7 +17,7 @@
             <source src="<%= url_for(video.file) %>" type="video/mp4" />
           </video>
         </td>
-        <td style="vertical-align:top"><h3><%= video.title %></h3><br><%= Category.find(video.category_id).name %></td>
+        <td style="vertical-align:top"><h3><%= video.title %></h3><br><%= video.category.name %></td>
       </tr>
     <% end %>
   </tbody>

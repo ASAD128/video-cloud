@@ -1,6 +1,6 @@
 class Video < ApplicationRecord
   has_one_attached :file
-  has_one :category
+  belongs_to :category
   has_many :thumbnails
 
   validates :title, presence: true
