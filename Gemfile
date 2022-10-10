@@ -66,3 +66,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rack-cors'
+
+gem 'jsonapi-serializer'

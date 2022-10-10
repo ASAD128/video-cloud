@@ -4,7 +4,8 @@ class VideosController < ApplicationController
 
   # GET /videos
   def index
-    @videos = Video.all
+    @video = Video.last
+    render json: VideoSerializer.new(@video).serializable_hash[:data][:attributes]
   end
 
   # GET /videos/new
@@ -15,14 +16,9 @@ class VideosController < ApplicationController
   # POST /videos
   def create
     @video = Video.new(video_params)
-    respond_to do |format|
-      if @video.save
-        generate_thumbnails
-        # format.html { redirect_to controller: "videos", action: "index", format: "html", notice: 'Video was successfully created.' }
-        format.html { render json: @video }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @video.save
+      generate_thumbnails
+      render json: VideoSerializer.new(@video).serializable_hash[:data][:attributes]
     end
   end
 
@@ -34,7 +30,6 @@ class VideosController < ApplicationController
     # Only allow a list of trusted parameters through.
     def video_params
       params.require(:video).permit(:title, :category_id, :file)
-      #params.permit(:title, :category_id, :file)
     end
 
   def generate_thumbnails

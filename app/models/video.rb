@@ -6,6 +6,15 @@ class Video < ApplicationRecord
   validates :title, presence: true
   validate :file_format
 
+  def video_url
+    # Rails.application.routes.url_helpers.rails_blob_path(file, only_path: true)
+    Rails.application.routes.url_helpers.url_for(file)
+  end
+
+  def thumbnail_url
+    thumbnails.last.url
+  end
+
   private
   def file_format
     return unless file.attached?
