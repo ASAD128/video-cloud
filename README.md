@@ -1,7 +1,9 @@
 # README
 
-Simple Web Application of Upload and Watch Videos
+Video Cloud is a simple web application which allows users to upload and watch videos online
 
+
+# Features
  1. User can upload videos based on specific categories
  2. System 'll generate thumbnails automatically from the Video and store in Database
  3. User can watch the uploaded video from videos listing page
